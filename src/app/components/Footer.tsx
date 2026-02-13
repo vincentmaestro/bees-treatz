@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">
-              <span className="text-brand-orange">Bee's</span> Treatz
+              <span className="text-brand-orange">Bee&apos;s</span> Treatz
             </h3>
             <p className="text-gray-300 mb-4">
               Authentic Nigerian home-style food, freshly made in the UK.
@@ -67,7 +67,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Bee's Treatz. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Bee&apos;s Treatz. All rights reserved.</p>
         </div>
       </div>
     </footer>

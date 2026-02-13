@@ -16,27 +16,26 @@ export default function CateringPage() {
     details: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function handleSubmit(e: React.SubmitEvent) {
     e.preventDefault();
     
     const message = `
-*Catering Enquiry from Website*
+    *Catering Enquiry from Website*
 
-Name: ${formData.name}
-Phone: ${formData.phone}
-Email: ${formData.email}
+    Name: ${formData.name}
+    Phone: ${formData.phone}
+    Email: ${formData.email}
 
-Event Type: ${formData.eventType}
-Number of Guests: ${formData.guestCount}
-Event Date: ${formData.eventDate}
-Location: ${formData.location}
-Budget: ${formData.budget}
+    Event Type: ${formData.eventType}
+    Number of Guests: ${formData.guestCount}
+    Event Date: ${formData.eventDate}
+    Location: ${formData.location}
+    Budget: ${formData.budget}
 
-Details:
-${formData.details}
+    Details: ${formData.details}
     `.trim();
 
-    const whatsappNumber = '447000000000'; // UPDATE THIS
+    const whatsappNumber = '447778797023'; // UPDATE THIS
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
   };
@@ -60,7 +59,7 @@ ${formData.details}
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-dark to-gray-900 text-white py-20">
+      <section className="bg-linear-to-br from-brand-dark to-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Catering & Events</h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
@@ -95,7 +94,7 @@ ${formData.details}
       </section>
 
       {/* Package Examples */}
-      <section className="py-16 bg-gradient-to-br from-amber-50 to-orange-50">
+      <section className="py-16 bg-linear-to-br from-amber-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-brand-dark mb-4">Sample Packages</h2>
@@ -180,7 +179,7 @@ ${formData.details}
 
             {/* Package 3 */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-brand-orange to-amber-500 text-white p-6 text-center">
+              <div className="bg-linear-to-r from-brand-orange to-amber-500 text-white p-6 text-center">
                 <h3 className="text-2xl font-bold mb-2">Grand Celebration</h3>
                 <p className="text-3xl font-bold">100+ Guests</p>
               </div>
@@ -218,7 +217,7 @@ ${formData.details}
           </div>
 
           <p className="text-center mt-12 text-gray-600 text-lg">
-            All packages are fully customizable. Prices are starting points - let's create your perfect menu!
+            All packages are fully customizable. Prices are starting points - let&apos;s create your perfect menu!
           </p>
         </div>
       </section>
@@ -228,7 +227,7 @@ ${formData.details}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-brand-dark mb-4">Request a Quote</h2>
-            <p className="text-xl text-gray-600">Tell us about your event and we'll create a custom package</p>
+            <p className="text-xl text-gray-600">Tell us about your event and we&apos;ll create a custom package</p>
           </div>
 
           <div className="bg-gray-50 rounded-2xl shadow-lg p-8 md:p-12">
@@ -368,7 +367,7 @@ ${formData.details}
               </button>
 
               <p className="text-center text-sm text-gray-500">
-                We'll respond within 24 hours with a personalized quote via WhatsApp
+                We&apos;ll respond within 24 hours with a personalized quote
               </p>
             </form>
           </div>
@@ -379,7 +378,7 @@ ${formData.details}
       <section className="py-16 bg-brand-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Why Choose Bee's Treatz Catering</h2>
+            <h2 className="text-4xl font-bold mb-4">Why Choose Bee&apos;s Treatz Catering</h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

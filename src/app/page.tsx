@@ -74,8 +74,8 @@ export default function Home() {
                   <div className="w-32 h-32 bg-brand-orange/20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Soup className="w-16 h-16 text-brand-orange" />
                   </div>
-                  <p className="text-gray-600 font-medium text-lg">Replace with your delicious food photo!</p>
-                  <p className="text-sm text-gray-500 mt-2">Recommended: High-quality jollof rice, stew, or platter shot</p>
+                  <p className="text-gray-600 font-medium text-lg">Delicious food photo will come here</p>
+                  <p className="text-sm text-gray-500 mt-2">High-quality jollof rice, stew, or platter shot</p>
                 </div>
               </div>
             </div>
@@ -136,15 +136,15 @@ export default function Home() {
             <p className="text-xl text-gray-600">The dishes everyone loves</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12 px-6">
             {[
-              { name: 'Jollof Rice', icon: '🍚', desc: 'The crown jewel of West African cuisine' },
-              { name: 'Egusi Soup', icon: '🥣', desc: 'Rich melon seed soup with your choice of protein' },
-              { name: 'Small Chops', icon: '🍢', desc: 'Perfect party platters and finger foods' },
+              { name: 'Jollof Rice', image: 'https://images.unsplash.com/photo-1665332195309-9d75071138f0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', desc: 'The crown jewel of West African cuisine' },
+              { name: 'Egusi Soup', image: 'https://images.unsplash.com/photo-1763048443535-1243379234e2?q=80&w=672&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', desc: 'Rich melon seed soup with your choice of protein' },
+              { name: 'Small Chops', image: 'https://images.unsplash.com/photo-1674422753234-f2e1ce087e3a?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', desc: 'Perfect party platters and finger foods' },
             ].map((dish) => (
               <div key={dish.name} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                 <div className="h-48 bg-linear-to-br from-brand-orange to-amber-500 flex items-center justify-center">
-                  <div className="text-7xl">{dish.icon}</div>
+                  <img src={dish.image} alt={dish.name} className="w-full aspect-video" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-brand-dark mb-2">{dish.name}</h3>
@@ -177,7 +177,7 @@ export default function Home() {
           <p className="text-xl text-white mbbg-brand-orange/90">
             Order now for delivery or collection. Catering packages available for your events.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
             <Link
               href="/order"
               className="bg-white text-brand-orange px-8 py-4 rounded-lg hover:bg-gray-100 transition-all font-semibold text-lg"

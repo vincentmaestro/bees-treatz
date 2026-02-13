@@ -8,7 +8,6 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
     { href: '/menu', label: 'Menu' },
     { href: '/catering', label: 'Catering & Events' },
     { href: '/about', label: 'About' },
@@ -24,7 +23,7 @@ export default function Navigation() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-2">
                 <div className="text-2xl font-bold">
-                  <span className="text-brand-orange">Bee's</span>
+                  <span className="text-brand-orange">Bee&apos;s</span>
                   <span className="text-brand-dark"> Treatz</span>
                 </div>
               </Link>

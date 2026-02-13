@@ -20,7 +20,7 @@ export default function AboutPage() {
           <div className="prose prose-lg max-w-none">
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-xl">
-                Bee's Treatz was born from a simple passion: sharing the rich, vibrant flavors of Nigerian cuisine 
+                Bee&apos;s Treatz was born from a simple passion: sharing the rich, vibrant flavors of Nigerian cuisine 
                 with our community here in the UK.
               </p>
 
@@ -39,13 +39,13 @@ export default function AboutPage() {
               </p>
 
               <p>
-                That's how Bee's Treatz began. What started in our home kitchen has grown into a trusted name for 
-                authentic Nigerian cuisine in the UK. We're proud to serve both Nigerians seeking a taste of home 
+                That&apos;s how Bee&apos;s Treatz began. What started in our home kitchen has grown into a trusted name for 
+                authentic Nigerian cuisine in the UK. We&apos;re proud to serve both Nigerians seeking a taste of home 
                 and food lovers discovering these incredible flavors for the first time.
               </p>
 
               <p className="text-xl font-semibold text-brand-dark">
-                Every dish we prepare is made the way it should be—with fresh ingredients, authentic spices, and 
+                Every dish we prepare is made the way it should be. With fresh ingredients, authentic spices, and 
                 the time-honored techniques passed down through generations.
               </p>
             </div>
@@ -93,8 +93,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-brand-dark mb-3">Made with Love</h3>
               <p className="text-gray-600 leading-relaxed">
-                Food is an expression of care. We cook every dish as if we're feeding our own family—because to 
-                us, every customer is part of the Bee's Treatz family.
+                Food is an expression of care. We cook every dish as if we&apos;re feeding our own family—because to 
+                us, every customer is part of the Bee&apos;s Treatz family.
               </p>
             </div>
           </div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="text-xl font-bold text-brand-dark mb-2">Flexible & Accommodating</h3>
                   <p className="text-gray-600">
-                    Allergies? Spice preferences? Special requests? We're happy to accommodate. Your satisfaction 
+                    Allergies? Spice preferences? Special requests? We&apos;re happy to accommodate. Your satisfaction 
                     is what matters.
                   </p>
                 </div>
@@ -180,7 +180,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-brand-dark mb-4">What Our Customers Say</h2>
-            <p className="text-xl text-gray-600">Don't just take our word for it</p>
+            <p className="text-xl text-gray-600">Don&apos;t just take our word for it</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -191,8 +191,8 @@ export default function AboutPage() {
                 ))}
               </div>
               <p className="text-gray-700 mb-4 italic">
-                "Best jollof I've had in the UK—tastes exactly like home! The egusi soup reminded me of my 
-                grandmother's cooking."
+                &quot;Best jollof I&apos;ve had in the UK—tastes exactly like home! The egusi soup reminded me of my 
+                grandmother&apos;s cooking.&quot;
               </p>
               <p className="font-semibold text-brand-dark">— Chioma O.</p>
             </div>
@@ -204,8 +204,8 @@ export default function AboutPage() {
                 ))}
               </div>
               <p className="text-gray-700 mb-4 italic">
-                "Ordered for my birthday party and everyone loved it! The small chops platter was a huge hit. 
-                Will definitely be using them for future events."
+                &quot;Ordered for my birthday party and everyone loved it! The small chops platter was a huge hit. 
+                Will definitely be using them for future events.&quot;
               </p>
               <p className="font-semibold text-brand-dark">— David A.</p>
             </div>
@@ -217,8 +217,8 @@ export default function AboutPage() {
                 ))}
               </div>
               <p className="text-gray-700 mb-4 italic">
-                "Finally found authentic Nigerian food in London! Fresh ingredients, generous portions, and 
-                the customer service is excellent. Highly recommend!"
+                &quot;Finally found authentic Nigerian food in London! Fresh ingredients, generous portions, and 
+                the customer service is excellent. Highly recommend!&quot;
               </p>
               <p className="font-semibold text-brand-dark">— Amara N.</p>
             </div>

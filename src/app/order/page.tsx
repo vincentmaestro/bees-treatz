@@ -100,7 +100,7 @@ ${formData.notes ? `Special Notes:\n${formData.notes}` : ''}
               </div>
               <h2 className="text-2xl font-bold text-brand-dark mb-3">Call to Order</h2>
               <p className="text-gray-600 mb-6">
-                Prefer to speak to us? Give us a call and we'll take your order.
+                Prefer to speak to us? Give us a call and we&apos;ll take your order.
               </p>
               <a
                 href="tel:+447000000000"
@@ -116,7 +116,7 @@ ${formData.notes ? `Special Notes:\n${formData.notes}` : ''}
         <div className="bg-white rounded-2xl shadow-md p-8 md:p-12">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-brand-dark mb-3">Or Fill Out Order Form</h2>
-            <p className="text-gray-600">We'll confirm your order via WhatsApp or phone</p>
+            <p className="text-gray-600">We&apos;ll confirm your order via WhatsApp or phone</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -275,7 +275,7 @@ ${formData.notes ? `Special Notes:\n${formData.notes}` : ''}
             </button>
 
             <p className="text-center text-sm text-gray-500">
-              By submitting, you'll be redirected to WhatsApp to confirm your order
+              By submitting, you&apos;ll be redirected to WhatsApp to confirm your order
             </p>
           </form>
         </div>
