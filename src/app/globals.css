@@ -1,31 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #101828;
-  --brand-orange: #F4AF33;
-  --brand-dark: #201E1E;
+@theme {
+  --color-brand-orange: #f4af33;
+  --color-brand-dark: #201e1e;
+  --color-brand-red: #e63946;
+  --color-warm-yellow: #ffd60a;
+  --color-deep-green: #2d6a4f;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-brand-orange: var(--brand-orange);
-  --color-brand-dark: var(--brand-dark);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-900 antialiased;
+  }
+  
+  .pattern-dots {
+    background-image: radial-gradient(circle, rgba(244, 175, 51, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .pattern-grid {
+    background-image: 
+      linear-gradient(rgba(244, 175, 51, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244, 175, 51, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  .stamp {
+    @apply inline-block px-3 py-1 border-2 border-dashed rotate-3;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-card-glow:hover {
+    box-shadow: 0 0 30px rgba(244, 175, 51, 0.3);
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
