@@ -1,9 +1,9 @@
 import { Flame } from 'lucide-react';
-import ImageCarousel from '../components/image-carousel';
+import ImageCarousel from '@/app/components/image-carousel';
 import { menuData } from '@/page-data';
 
 export default function MenuPage() {
-  const currentCategory = menuData[0];
+  const currentCategory = menuData[1];
 
   return (
     <div>

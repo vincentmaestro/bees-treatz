@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ChefHat, Utensils, PartyPopper, CheckCircle2, Star, Clock, Soup, Flame, Sparkles, Heart, TrendingUp } from 'lucide-react';
+import { ChefHat, PartyPopper, CheckCircle2, Star, Soup, Flame, Sparkles, Heart, TrendingUp } from 'lucide-react';
 
 export default function Home() {
   const dishes = [

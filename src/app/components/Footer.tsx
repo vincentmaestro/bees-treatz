@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Flame } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 export default function Footer() {
   
@@ -12,9 +12,6 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <>
               <div className="flex items-center gap-2 mb-4">
-                <div className="bg-linear-to-br from-brand-orange to-warm-yellow p-2 rounded-full">
-                  <Flame className="w-5 h-5 text-white" />
-                </div>
                 <h3 className="text-2xl font-bold">
                   <span className="text-brand-orange">Bee{`'`}s</span> Treatz
                 </h3>
