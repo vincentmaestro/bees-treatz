@@ -46,8 +46,8 @@ export default function Home() {
                   </span>
                 </h1>
                 <p className="text-xl lg:text-2xl text-gray-700 font-medium">
-                  Authentic Nigerian street eats 🇳🇬 <br/>
-                  Made fresh in the UK, served with vibes ✨
+                  Authentic Nigerian eats 🇳🇬 <br/>
+                  Made fresh in the UK✨
                 </p>
               </div>
 
@@ -103,7 +103,7 @@ export default function Home() {
                     <Soup className="w-20 h-20 text-white drop-shadow-lg" strokeWidth={2} />
                   </div>
                   <p className="text-white font-black text-2xl drop-shadow-lg mb-2">Your Jollof Hero Shot Here!</p>
-                  <p className="text-white/90 text-sm">High-quality food photo = hungry customers 📸</p>
+                  <p className="text-white/90 text-sm">Short looped video of delicious treats will be placed here</p>
                 </div>
               </div>
             </div>
