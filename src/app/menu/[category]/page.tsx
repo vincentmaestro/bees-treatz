@@ -1,9 +1,16 @@
 import { menuData } from '@/page-data';
-import ImageCarousel from '../components/image-carousel';
-import ItemDetails from '../components/item-details';
+import { notFound } from 'next/navigation';
+import ImageCarousel from '@/app/components/image-carousel';
+import ItemDetails from '@/app/components/item-details';
 
-export default async function MenuPage() {
-  const currentCategory = menuData[0];
+export default async function MenuPage({ params }: {
+    params: Promise<{ category: string }>
+}) {
+    const { category } = await params;
+    const currentCategory = menuData.find(menu => menu.id === category);
+
+    if(!currentCategory)
+        return(notFound());
 
     return (
         <div>
@@ -39,4 +46,3 @@ export default async function MenuPage() {
         </div>
     );
 }
-

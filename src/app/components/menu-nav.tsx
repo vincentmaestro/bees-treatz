@@ -10,7 +10,7 @@ export default function MenuNav() {
         <section className="bg-white border-b-2 border-gray-200 sticky top-20 z-40 shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <div className="flex items-center gap-4 overflow-x-auto">
-                    <span className="text-sm font-bold text-gray-700 shrink-0">Filter by:</span>
+                    <span className="text-sm font-bold text-gray-700 shrink-0">Categories:</span>
                     <div className="flex gap-2">
                     {menuData.map((category) => (
                         <Link
