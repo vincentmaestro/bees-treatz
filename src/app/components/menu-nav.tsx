@@ -1,5 +1,5 @@
 'use client';
-import { menuData } from "@/page-data";
+import { navMenu } from "../menu/[category]/page";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,17 +12,17 @@ export default function MenuNav() {
                 <div className="flex items-center gap-4 overflow-x-auto">
                     <span className="text-sm font-bold text-gray-700 shrink-0">Categories:</span>
                     <div className="flex gap-2">
-                    {menuData.map((category) => (
+                    {navMenu.map((item, id) => (
                         <Link
-                        href={`/menu/${category.id}`}
-                        key={category.id}
+                        href={`/menu/${item.href}`}
+                        key={id}
                         className={`px-4 py-2 rounded-lg font-bold text-sm transition-all shrink-0 ${
-                            pathname === `/menu/${category.id}`
+                            pathname === `/menu/${item.href}`
                             ? 'bg-linear-to-r from-brand-red to-brand-orange text-white shadow-lg'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                         >
-                        {category.title}
+                        {item.label}
                         </Link>
                     ))}
                     </div>

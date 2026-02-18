@@ -5,7 +5,6 @@ export default function Footer() {
   
   return (
     <footer className="bg-linear-to-br from-brand-dark via-gray-900 to-brand-dark text-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5 pattern-grid"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -20,7 +19,7 @@ export default function Footer() {
                 Authentic Nigerian street eats, made fresh daily in the UK.
               </p>
             </>
-            <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col justify-between gap-4">
+            <div className="hidden md:flex border-t border-gray-700 mt-8 pt-8 flex-col justify-between gap-4">
               <p className="text-gray-400 text-sm text-center sm:text-left">
                 © {new Date().getFullYear()} Bee{`'`}s Treatz.
               </p>
@@ -76,8 +75,20 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+
+        <div className="md:hidden border-t border-gray-700 mt-8 pt-8 flex flex-col justify-between gap-4">
+          <p className="text-gray-400 text-sm text-left sm:text-center">
+            © {new Date().getFullYear()} Bee{`'`}s Treatz.
+          </p>
+          <div className="flex gap-4 text-xs text-gray-500">
+            <a href="#" className="hover:text-brand-orange transition-colors">Privacy</a>
+            <span>•</span>
+            <a href="#" className="hover:text-brand-orange transition-colors">Terms</a>
+          </div>
+        </div>
+
       </div>
-      
+
       <div className="h-1 bg-linear-to-r from-brand-red via-brand-orange to-warm-yellow"></div>
     </footer>
   );

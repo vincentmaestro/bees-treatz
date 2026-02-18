@@ -6,6 +6,7 @@
   --color-brand-red: #e63946;
   --color-warm-yellow: #ffd60a;
   --color-deep-green: #2d6a4f;
+  --breakpoint-xs: 30rem;
 }
 
 @layer base {
