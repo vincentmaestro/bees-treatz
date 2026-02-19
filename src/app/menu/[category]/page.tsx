@@ -1,18 +1,7 @@
+import { navMenu } from '@/page-data';
 import { getMenuItems } from '@/sanity/get-menu-items';
 import { notFound } from 'next/navigation';
 import ItemDetails from '@/app/components/item-details';
-
-export const navMenu = [
-    { label: 'Canapés', href: 'canapes' },
-    { label: 'Cocktail and Mocktails', href: 'cocktail-mocktails' },
-    { label: 'Others', href: 'other-meals' },
-    { label: 'Pasta Dishes', href: 'pasta-dishes' },
-    { label: 'Pepper Soup', href: 'peppersoup' },
-    { label: 'proteins', href: 'proteins' },
-    { label: 'Rice Dish', href: 'rice-dish' },
-    { label: 'Small Chops', href: 'small-chops' },
-    { label: 'Soups And Stews', href: 'soups-and-stew' }
-];
 
 export default async function MenuPage({ params }: {
     params: Promise<{ category: string }>

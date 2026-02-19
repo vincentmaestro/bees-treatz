@@ -1,4 +1,16 @@
 
+export const navMenu = [
+  { label: 'Canapés', href: 'canapes' },
+  { label: 'Cocktail and Mocktails', href: 'cocktail-mocktails' },
+  { label: 'Others', href: 'other-meals' },
+  { label: 'Pasta Dishes', href: 'pasta-dishes' },
+  { label: 'Pepper Soup', href: 'peppersoup' },
+  { label: 'proteins', href: 'proteins' },
+  { label: 'Rice Dish', href: 'rice-dish' },
+  { label: 'Small Chops', href: 'small-chops' },
+  { label: 'Soups And Stews', href: 'soups-and-stew' }
+];
+
 export interface MenuItem {
   name: string;
   description: string;

@@ -1,5 +1,5 @@
 'use client';
-import { navMenu } from "../menu/[category]/page";
+import { navMenu } from "@/page-data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
