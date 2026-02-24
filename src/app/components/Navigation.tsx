@@ -10,7 +10,8 @@ export default function Navigation() {
 
   const navLinks = [
     { href: '/menu', label: 'Menu' },
-    { href: '/catering', label: 'Events & Catering' },
+    { href: '/events', label: 'Events & Catering' },
+    { href: '/rentals', label: 'Rentals' },
     { href: '/about', label: 'About' },
   ];
 

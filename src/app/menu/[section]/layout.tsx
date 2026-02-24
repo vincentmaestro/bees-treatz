@@ -1,6 +1,6 @@
+import MenuNavigation from "@/app/components/menu-navigation";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
-import MenuNav from "../components/menu-nav";
 
 export default function MenuLayout({ children }: {
     children: React.ReactNode
@@ -21,7 +21,7 @@ export default function MenuLayout({ children }: {
                 </div>
             </section>
 
-            <MenuNav />
+            <MenuNavigation />
 
             { children }
 

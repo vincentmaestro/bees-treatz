@@ -1,39 +1,5 @@
-import { getMenuItems } from '@/sanity/get-menu-items';
-import ItemDetails from '../components/item-details';
+import { redirect } from "next/navigation";
 
-export default async function MenuPage() {
-  const menuItems = await getMenuItems('canapes');
-
-    return (
-        <div>
-            <section className="py-16 pattern-grid">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-brand-orange/20">
-                        <div className="flex items-center gap-3 mb-8 pb-6 border-b-4 border-linear-to-r from-brand-red via-brand-orange to-warm-yellow">
-                            <h2 className="text-3xl lg:text-4xl font-black text-brand-dark">
-                                Canapés
-                            </h2>
-                        </div>
-
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {menuItems.map((item, idx) => (
-                                <div key={idx} className="group relative p-6 rounded-2xl hover:bg-linear-to-br hover:from-amber-50 hover:to-orange-50 transition-all border-2 border-transparent hover:border-brand-orange menu-card-glow">
-                                {item.badge && (
-                                    <div className="absolute -top-3 -right-3 z-10">
-                                    <span className="stamp bg-linear-to-r from-brand-red to-brand-orange text-white text-xs font-bold px-3 py-1.5">
-                                        {item.badge}
-                                    </span>
-                                    </div>
-                                )}
-
-                                <ItemDetails item={item} itemName={item.name} />
-                            </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    );
+export default function MenuRoot() {
+    redirect('menu/pasta-dishes');
 }
-

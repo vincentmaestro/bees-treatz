@@ -5,8 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { urlFor } from "@/sanity";
 
-
-export default function ItemDetails({ item, itemName }: {
+export default function MenuBuilder({ item, itemName }: {
     item: SanityDocument,
     itemName: string
 }) {
@@ -73,9 +72,12 @@ export default function ItemDetails({ item, itemName }: {
 
             <div className="flex justify-between items-end">
                 <span className="text-brand-orange font-black text-xl">From £{item.sizes_and_price[currentItemIndex].price}</span>
-                <span className="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
-                    Single / Party Tray
-                </span>
+                <button
+                title="Add item"
+                className="px-4 py-1 text-sm text-gray-500 border-2 border-brand-orange/70 rounded-lg hover:bg-brand-orange/90 hover:text-white cursor-pointer transition-all duration-100"
+                >
+                    Add
+                </button>
             </div>
         </>
     );

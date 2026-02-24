@@ -1,18 +1,18 @@
-import { navMenu } from '@/page-data';
+import { mainMenu } from '@/page-data';
 import { getMenuItems } from '@/sanity/get-menu-items';
 import { notFound } from 'next/navigation';
-import ItemDetails from '@/app/components/item-details';
+import MenuBuilder from '@/app/components/menu-builder';
 
 export default async function MenuPage({ params }: {
-    params: Promise<{ category: string }>
+    params: Promise<{ section: string }>
 }) {
-    const { category } = await params;
-    const currentCategory = navMenu.find(menu => menu.href === category);
+    const { section } = await params;
+    const currentSection = mainMenu.find(menu => menu.href === section);
 
-    if(!currentCategory)
+    if(!currentSection)
         return(notFound());
 
-    const menuItems = await getMenuItems(currentCategory.href);
+    const menuItems = await getMenuItems(currentSection.href);
 
     return (
         <div>
@@ -21,7 +21,7 @@ export default async function MenuPage({ params }: {
                     <div className="bg-white rounded-3xl px-2 py-8 shadow-xl border-2 border-brand-orange/20 xs:px-4 lg:p-10">
                         <div className="flex items-center gap-3 mb-8 pb-6 border-b-4 border-linear-to-r from-brand-red via-brand-orange to-warm-yellow">
                             <h2 className="text-3xl lg:text-4xl font-black text-brand-dark">
-                                {currentCategory.label}
+                                {currentSection.label}
                             </h2>
                         </div>
 
@@ -37,7 +37,7 @@ export default async function MenuPage({ params }: {
                                     </div>
                                 )}
 
-                                <ItemDetails item={item} itemName={item.name} />
+                                <MenuBuilder item={item} itemName={item.name} />
                             </div>
                             )) :
                             <p

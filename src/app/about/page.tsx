@@ -1,96 +1,101 @@
-import { Flag, Star, Heart, ChefHat, Sparkles, CheckCircle2, Users } from 'lucide-react';
+import { Flag, Star, Heart, Award, Sparkles, Users, Building2, Utensils } from 'lucide-react';
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-linear-to-br from-amber-50 to-orange-50 py-20 text-center">
-        <h1 className="text-5xl font-black text-brand-dark mb-4">Our Story 📖</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">Bringing authentic Nigerian flavors to the UK</p>
-      </section>
-
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none space-y-6 text-gray-700">
-            <p className="text-xl font-bold text-brand-dark">
-              Bee{`'`}s Treatz was born from a simple passion: sharing the rich, vibrant flavors of Nigerian cuisine with our community here in the UK.
-            </p>
-
-            <p>
-              Growing up in Nigeria, food was more than just sustenance—it was love, celebration, and connection. Every family gathering, every special occasion, every Sunday afternoon was marked by the aromas of jollof rice simmering on the stove, egusi soup bubbling away, and the warm laughter of loved ones gathered around the table.
-            </p>
-
-            <p>
-              When we moved to the UK, we missed those flavors. Not just the taste, but the feeling of home they brought. We started cooking for friends and family, recreating those cherished recipes our mothers and grandmothers taught us. The response was overwhelming—people craved authentic Nigerian food made with care and traditional methods.
-            </p>
-
-            <p>
-              That{`'`}s how Bee{`'`}s Treatz began. What started in our home kitchen has grown into a trusted name for authentic Nigerian cuisine in the UK. We{`'`}re proud to serve both Nigerians seeking a taste of home and food lovers discovering these incredible flavors for the first time.
-            </p>
-
-            <p className="text-xl font-semibold text-brand-dark">
-              Every dish we prepare is made the way it should be—with fresh ingredients, authentic spices, and the time-honored techniques passed down through generations.
-            </p>
+      <section className="relative bg-linear-to-br from-brand-dark via-gray-900 to-brand-dark text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 pattern-dots opacity-10"></div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+            <Sparkles className="w-5 h-5 text-brand-orange" />
+            <span className="text-sm font-bold">Est. 2021</span>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-black text-brand-dark mb-12 text-center">What We Stand For</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-brand-orange/20">
-              <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Flag className="w-8 h-8 text-brand-orange" />
-              </div>
-              <h3 className="text-2xl font-black text-brand-dark mb-3 text-center">Authenticity</h3>
-              <p className="text-gray-600 text-center">
-                We never cut corners. Every recipe follows traditional methods, using the authentic ingredients that make Nigerian food special.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-brand-orange/20">
-              <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-brand-orange" />
-              </div>
-              <h3 className="text-2xl font-black text-brand-dark mb-3 text-center">Quality First</h3>
-              <p className="text-gray-600 text-center">
-                We source the freshest ingredients and prepare everything to order. Your health and satisfaction are our top priorities.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-brand-orange/20">
-              <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8 text-brand-orange" />
-              </div>
-              <h3 className="text-2xl font-black text-brand-dark mb-3 text-center">Made with Love</h3>
-              <p className="text-gray-600 text-center">
-                Food is an expression of care. We cook every dish as if we{`'`}re feeding our own family.
-              </p>
-            </div>
-          </div>
+          <h1 className="text-5xl lg:text-6xl font-black mb-6 drop-shadow-lg">Our Story</h1>
+          <p className="text-2xl lg:text-2xl text-gray-300 italic font-caveat">
+            ...Satisfying stomachs
+          </p>
         </div>
       </section>
 
       <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+            <p className="text-2xl font-bold text-brand-dark">
+              At Bee{`'`}s Treatz, food is more than a service—it{`'`}s an experience rooted in culture, flavour, and heartfelt hospitality.
+            </p>
+
+            <p>
+              Established in 2021 and proudly registered in both the United Kingdom and Nigeria, Bee{`'`}s Treatz has served over 5,000 happy customers, building a reputation for excellence, authenticity, and beautifully curated food experiences.
+            </p>
+
+            <p>
+              We specialise in rich, flavourful Nigerian cuisine, prepared with care and presented with elegance. Whether it{`'`}s an intimate private dining experience, a milestone celebration, a corporate gathering, or a lavish event, we bring warmth to every table and luxury to every detail.
+            </p>
+
+            <p>
+              Our services extend beyond catering. From refined food styling and canapé setups to finger food services and a fully equipped mobile event bar, we thoughtfully design each element to create moments your guests will remember long after the event ends.
+            </p>
+
+            <p className="text-xl font-semibold text-brand-dark border-l-4 border-brand-orange pl-6 italic bg-amber-50 py-4 rounded-r-lg">
+              At the heart of Bee{`'`}s Treatz is a passion for bringing people together through exceptional food and impeccable service.
+            </p>
+
+            <p>
+              We combine homely authenticity with professional delivery and sophisticated presentation—ensuring every event feels personal, polished, and truly special. At the end of the day, our focus is to satisfy every stomach that comes our way.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-linear-to-br from-amber-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-black text-brand-dark mb-12 text-center">What Makes Us Different</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black text-brand-dark">Our journey so far...</h2>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-5xl font-black text-brand-orange mb-2">2021</div>
+              <p className="text-gray-700 font-semibold">Established</p>
+            </div>
+            <div className="text-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-5xl font-black text-brand-orange mb-2">5K+</div>
+              <p className="text-gray-700 font-semibold">Happy Customers</p>
+            </div>
+            <div className="text-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-5xl font-black text-brand-orange mb-2">2</div>
+              <p className="text-gray-700 font-semibold">Countries</p>
+            </div>
+            <div className="text-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-5xl font-black text-brand-orange mb-2">100%</div>
+              <p className="text-gray-700 font-semibold">Authentic</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-brand-dark text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black mb-4">Our Services</h2>
+            <p className="text-xl text-gray-300">Comprehensive event and catering solutions</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: ChefHat, title: 'Traditional Recipes', desc: "Our recipes come from generations of Nigerian home cooks. We honor their legacy by cooking them the right way." },
-              { icon: Sparkles, title: 'Fresh Every Day', desc: "We don't believe in batch cooking or freezing. Every order is prepared fresh using ingredients bought that day." },
-              { icon: CheckCircle2, title: 'UK Food Safety', desc: "While our recipes are Nigerian, our kitchen practices meet all UK hygiene and safety regulations." },
-              { icon: Users, title: 'Flexible & Accommodating', desc: "Allergies? Spice preferences? Special requests? We're happy to accommodate." },
-            ].map((item, idx) => {
-              const Icon = item.icon;
+              { icon: Utensils, title: 'Private Dining', desc: 'Intimate culinary experiences' },
+              { icon: Building2, title: 'Corporate Events', desc: 'Professional catering services' },
+              { icon: Users, title: 'Event Catering', desc: 'Weddings, parties, celebrations' },
+              { icon: Sparkles, title: 'Mobile Bar', desc: 'Fully equipped bar service' },
+            ].map((service, idx) => {
+              const Icon = service.icon;
               return (
-                <div key={idx} className="flex gap-4 p-6 rounded-xl hover:bg-gray-50 transition-colors">
-                  <div className="shrink-0 w-12 h-12 bg-brand-orange rounded-xl flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-white" />
+                <div key={idx} className="text-center p-6 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                  <div className="w-16 h-16 bg-brand-orange rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-black text-brand-dark mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.desc}</p>
-                  </div>
+                  <h3 className="font-bold text-lg mb-2">{service.title}</h3>
+                  <p className="text-gray-300 text-sm">{service.desc}</p>
                 </div>
               );
             })}
@@ -100,21 +105,40 @@ export default function AboutPage() {
 
       <section className="py-16 bg-linear-to-br from-amber-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-black text-brand-dark mb-12 text-center">What Our Customers Say</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black text-brand-dark mb-4">What Our Customers Say</h2>
+            <p className="text-xl text-gray-600">Real feedback from real events</p>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { text: "Best jollof I've had in the UK—tastes exactly like home! The egusi soup reminded me of my grandmother's cooking.", name: "Chioma O." },
-              { text: "Ordered for my birthday party and everyone loved it! The small chops platter was a huge hit.", name: "Balogun A." },
-              { text: "Finally found authentic Nigerian food in London! Fresh ingredients, generous portions, excellent service.", name: "Amara N." },
+              { 
+                text: "Exceptional service and outstanding food! Bee's Treatz catered our corporate event and received nothing but praise from our guests. Highly professional.", 
+                name: "Sarah M.", 
+                event: "Corporate Launch Event" 
+              },
+              { 
+                text: "The food was absolutely delicious and beautifully presented. Our wedding guests are still talking about how amazing everything was!", 
+                name: "Tunde & Kemi", 
+                event: "Wedding Reception" 
+              },
+              { 
+                text: "From planning to execution, everything was perfect. The mobile bar was a huge hit, and the canapés were incredible. Will definitely book again!", 
+                name: "James O.", 
+                event: "Private Anniversary Party" 
+              },
             ].map((review, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-md">
+              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex gap-1 text-brand-orange mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-brand-orange" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4 italic">{`"${review.text}"`}</p>
-                <p className="font-semibold text-brand-dark">— {review.name}</p>
+                <p className="text-gray-700 mb-6 italic leading-relaxed">{`"${review.text}"`}</p>
+                <div>
+                  <p className="font-bold text-brand-dark">{review.name}</p>
+                  <p className="text-sm text-gray-600">{review.event}</p>
+                </div>
               </div>
             ))}
           </div>

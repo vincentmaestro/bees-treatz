@@ -1,14 +1,23 @@
 
-export const navMenu = [
-  { label: 'Canapés', href: 'canapes' },
-  { label: 'Cocktail and Mocktails', href: 'cocktail-mocktails' },
-  { label: 'Others', href: 'other-meals' },
+export const mainMenu = [
   { label: 'Pasta Dishes', href: 'pasta-dishes' },
-  { label: 'Pepper Soup', href: 'peppersoup' },
-  { label: 'proteins', href: 'proteins' },
+  { label: 'Proteins', href: 'proteins' },
   { label: 'Rice Dish', href: 'rice-dish' },
   { label: 'Small Chops', href: 'small-chops' },
-  { label: 'Soups And Stews', href: 'soups-and-stew' }
+  { label: 'Soups And Stews', href: 'soups-and-stew' },
+  { label: 'Others', href: 'other-meals' },
+  { label: 'Combo Menu', href: 'combo' },
+];
+
+export const comboMenu = [
+  { label: 'Monday', href: 'monday' },
+  { label: 'Tueday', href: 'tueday' },
+  { label: 'Wednesday', href: 'wednesday' },
+  { label: 'Thursday', href: 'thursday' },
+  { label: 'Friday', href: 'friday' },
+  { label: 'Saturday', href: 'saturday' },
+  { label: 'Sunday', href: 'sunday' },
+  { label: 'Main Menu', href: '/menu' },
 ];
 
 export interface MenuItem {

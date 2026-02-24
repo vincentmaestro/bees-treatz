@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Cake, Heart, Building2, Church, PartyPopper, Store, Clock, Target, Sparkles, Award } from 'lucide-react';
+import { Building2, Wine, PartyPopper, Clock, Target, Sparkles, Award } from 'lucide-react';
+import Link from 'next/link';
 
 export default function CateringPage() {
   const [formData, setFormData] = useState({
@@ -48,40 +49,8 @@ ${formData.details}
     });
   };
 
-  const eventTypes = [
-    { icon: Cake, title: 'Birthday Parties', desc: 'Celebrate with authentic flavors' },
-    { icon: Heart, title: 'Weddings', desc: 'Make your special day delicious' },
-    { icon: Building2, title: 'Corporate Events', desc: 'Impress clients and colleagues' },
-    { icon: Church, title: 'Church Events', desc: 'Feed your congregation well' },
-    { icon: PartyPopper, title: 'Private Parties', desc: 'House parties, celebrations' },
-    { icon: Store, title: 'Pop-up Events', desc: 'Market stalls, food festivals' },
-  ];
-
-  const packages = [
-    {
-      name: 'Intimate Gathering',
-      guests: '20 Guests',
-      price: 'From £350',
-      features: ['Choice of 2 main dishes', '1 soup option with swallow', 'Small chops platter', 'Soft drinks included', 'Disposable serving ware'],
-    },
-    {
-      name: 'Standard Event',
-      guests: '50 Guests',
-      price: 'From £800',
-      popular: true,
-      features: ['Choice of 3 main dishes', '2 soup options with swallows', 'Large small chops platter', 'Assorted proteins', 'Drinks & serving ware', 'Setup assistance'],
-    },
-    {
-      name: 'Grand Celebration',
-      guests: '100+ Guests',
-      price: 'Custom Quote',
-      features: ['Unlimited dish options', 'Multiple soup stations', 'Premium proteins', 'Desserts & drinks', 'Full setup & service', 'Custom menu consultation'],
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
       <section className="relative bg-linear-to-br from-brand-dark via-gray-900 to-brand-dark text-white py-20 overflow-hidden">
         <div className="absolute inset-0 pattern-dots opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -96,70 +65,30 @@ ${formData.details}
         </div>
       </section>
 
-      {/* Event Types */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-brand-dark mb-4">Perfect For Every Occasion</h2>
-            <p className="text-xl text-gray-600">Professional catering services for all your events</p>
+            <p className="text-xl text-gray-600">Check out our galleries below for a glimpse of professional services catered for your events</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {eventTypes.map((event, idx) => {
+            {[
+              { icon: PartyPopper, title: 'Canapés', href: 'canapes' },
+              { icon: Wine, title: 'Cocktail and Mocktails', href: 'cocktail-mocktails' },
+              { icon: Building2, title: 'Other Events', href: 'other-events' }
+            ].map((event, idx) => {
               const Icon = event.icon;
               return (
-                <div key={idx} className="bg-gray-50 p-8 rounded-xl text-center hover:shadow-xl transition-all border-2 border-transparent hover:border-brand-orange group">
+                <Link href={`/events/${event.href}`} key={idx} className="bg-gray-50 p-8 rounded-xl text-center hover:shadow-xl transition-all border-2 border-transparent hover:border-brand-orange group">
                   <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-orange/20 transition-colors">
                     <Icon className="w-8 h-8 text-brand-orange" />
                   </div>
                   <h3 className="text-xl font-black text-brand-dark mb-2">{event.title}</h3>
-                  <p className="text-gray-600">{event.desc}</p>
-                </div>
+                </Link>
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* Sample Packages */}
-      <section className="py-16 bg-linear-to-br from-amber-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-brand-dark mb-4">Sample Packages</h2>
-            <p className="text-xl text-gray-600">Flexible options to suit your event size and budget</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {packages.map((pkg, idx) => (
-              <div key={idx} className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow ${pkg.popular ? 'border-2 border-brand-orange' : ''}`}>
-                {pkg.popular && (
-                  <div className="bg-brand-orange text-white text-center py-2 font-bold text-sm">
-                    ⭐ MOST POPULAR
-                  </div>
-                )}
-                <div className={`${pkg.popular ? 'bg-brand-dark' : 'bg-brand-orange'} text-white p-6 text-center`}>
-                  <h3 className="text-2xl font-black mb-2">{pkg.name}</h3>
-                  <p className="text-3xl font-bold">{pkg.guests}</p>
-                </div>
-                <div className="p-8">
-                  <ul className="space-y-3 mb-6">
-                    {pkg.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-brand-orange mt-1">✓</span>
-                        <span className="text-gray-700">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-center text-2xl font-black text-brand-dark mb-2">{pkg.price}</p>
-                  <p className="text-center text-sm text-gray-600">Fully customizable</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center mt-12 text-gray-600 text-lg">
-            All packages are fully customizable. Prices are starting points - let{`'`}s create your perfect menu!
-          </p>
         </div>
       </section>
 
@@ -176,7 +105,6 @@ ${formData.details}
 
           <div className="bg-linear-to-br from-amber-50 to-orange-50 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-brand-orange/30">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Contact Info */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">
@@ -332,19 +260,18 @@ ${formData.details}
                 type="submit"
                 className="w-full bg-linear-to-r from-brand-red to-brand-orange text-white px-8 py-5 rounded-xl hover:shadow-2xl transition-all font-black text-lg relative overflow-hidden group"
               >
-                <span className="relative z-10">Get My Custom Quote 🎊</span>
+                <span className="relative z-10">Get My Custom Quote</span>
                 <div className="absolute inset-0 bg-linear-to-r from-brand-orange to-warm-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
 
               <p className="text-center text-sm text-gray-600">
-                We{`'`}ll respond within 24 hours with a personalized quote via WhatsApp
+                We{`'`}ll respond within 24 hours with a personalized quote
               </p>
             </form>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
       <section className="py-16 bg-brand-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

@@ -10,13 +10,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2">
                 <h3 className="text-2xl font-bold">
                   <span className="text-brand-orange">Bee{`'`}s</span> Treatz
                 </h3>
               </div>
               <p className="text-gray-300 mb-3 text-lg">
-                Authentic Nigerian street eats, made fresh daily in the UK.
+                ...Satisfying stomachs
               </p>
             </>
             <div className="hidden md:flex border-t border-gray-700 mt-8 pt-8 flex-col justify-between gap-4">
@@ -57,10 +57,10 @@ export default function Footer() {
             <h4 className="font-bold mb-4 text-brand-orange text-lg">Reach Us</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-gray-300">
-                <a href='#' target='_blank' className="text-sm">Instagram</a>
+                <a href='https://www.instagram.com/beestreattz' target='_blank' className="text-sm">Instagram</a>
               </li>
               <li className="flex items-start gap-2 text-gray-300">
-                <a href='#' target='_blank' className="text-sm">TikTok</a>
+                <a href='www.tiktok.com/@catererinwolverhampton' target='_blank' className="text-sm">TikTok</a>
               </li>
               <li className="flex items-start gap-2 text-gray-300">
                 <a href='https://web.whatsapp.com/send/?phone=447778797023&text&type=phone_number&app_absent=0' target='_blank' className="text-sm">WhatsApp</a>
