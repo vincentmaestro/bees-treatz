@@ -1,53 +1,8 @@
-'use client';
-
-import { useState } from 'react';
 import { Building2, Wine, PartyPopper, Clock, Target, Sparkles, Award } from 'lucide-react';
 import Link from 'next/link';
+import EventsForm from '../components/events-form';
 
 export default function CateringPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    eventType: '',
-    guestCount: '',
-    eventDate: '',
-    location: '',
-    budget: '',
-    details: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const message = `
-*Catering Enquiry from Website*
-
-Name: ${formData.name}
-Phone: ${formData.phone}
-Email: ${formData.email}
-
-Event Type: ${formData.eventType}
-Number of Guests: ${formData.guestCount}
-Event Date: ${formData.eventDate}
-Location: ${formData.location}
-Budget: ${formData.budget}
-
-Details:
-${formData.details}
-    `.trim();
-
-    const whatsappNumber = '447778797023';
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -69,22 +24,33 @@ ${formData.details}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-brand-dark mb-4">Perfect For Every Occasion</h2>
-            <p className="text-xl text-gray-600">Check out our galleries below for a glimpse of professional services catered for your events</p>
+            <p className="text-xl text-gray-600">Check out our galleries for a glimpse of services we{`'`}ve delivered</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               { icon: PartyPopper, title: 'Canapés', href: 'canapes' },
-              { icon: Wine, title: 'Cocktail and Mocktails', href: 'cocktail-mocktails' },
+              { icon: Wine, title: 'Cocktail & Mocktails', href: 'cocktail-mocktails' },
               { icon: Building2, title: 'Other Events', href: 'other-events' }
             ].map((event, idx) => {
               const Icon = event.icon;
               return (
-                <Link href={`/events/${event.href}`} key={idx} className="bg-gray-50 p-8 rounded-xl text-center hover:shadow-xl transition-all border-2 border-transparent hover:border-brand-orange group">
-                  <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-orange/20 transition-colors">
-                    <Icon className="w-8 h-8 text-brand-orange" />
+                <Link 
+                  href={`/events/${event.href}`} 
+                  key={idx} 
+                  className="group relative bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-brand-orange transition-all hover:shadow-lg"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-brand-orange/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-orange/20 transition-colors">
+                      <Icon className="w-7 h-7 text-brand-orange" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-black text-lg text-brand-dark group-hover:text-brand-orange transition-colors">
+                        {event.title}
+                      </h3>
+                      <p className="text-sm text-gray-500">View gallery →</p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-black text-brand-dark mb-2">{event.title}</h3>
                 </Link>
               );
             })}
@@ -92,182 +58,15 @@ ${formData.details}
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section id='rq' className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-brand-orange/10 px-4 py-2 rounded-full mb-4">
-              <Sparkles className="w-5 h-5 text-brand-orange" />
-              <span className="text-sm font-bold text-brand-dark">Get Started</span>
-            </div>
             <h2 className="text-4xl font-black text-brand-dark mb-4">Request a Quote</h2>
             <p className="text-xl text-gray-600">Tell us about your event and we{`'`}ll create a custom package</p>
           </div>
 
           <div className="bg-linear-to-br from-amber-50 to-orange-50 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-brand-orange/30">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                    placeholder="John Doe"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                    placeholder="+44 7000 000000"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
-                    Event Type *
-                  </label>
-                  <select
-                    name="eventType"
-                    required
-                    value={formData.eventType}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                  >
-                    <option value="">Select event type</option>
-                    <option value="birthday">Birthday Party</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="corporate">Corporate Event</option>
-                    <option value="church">Church Event</option>
-                    <option value="private">Private Party</option>
-                    <option value="popup">Pop-up Event</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
-                    Number of Guests *
-                  </label>
-                  <input
-                    type="number"
-                    name="guestCount"
-                    required
-                    value={formData.guestCount}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                    placeholder="50"
-                    min="1"
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
-                    Event Date *
-                  </label>
-                  <input
-                    type="date"
-                    name="eventDate"
-                    required
-                    value={formData.eventDate}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
-                    Budget Range
-                  </label>
-                  <select
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="under-500">Under £500</option>
-                    <option value="500-1000">£500 - £1,000</option>
-                    <option value="1000-2000">£1,000 - £2,000</option>
-                    <option value="2000-plus">£2,000+</option>
-                    <option value="flexible">Flexible</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
-                  Event Location *
-                </label>
-                <input
-                  type="text"
-                  name="location"
-                  required
-                  value={formData.location}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                  placeholder="Venue name or area in London"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
-                  Tell us about your event
-                </label>
-                <textarea
-                  name="details"
-                  value={formData.details}
-                  onChange={handleChange}
-                  rows={5}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                  placeholder="Menu preferences, dietary requirements, special requests, timing, etc."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-linear-to-r from-brand-red to-brand-orange text-white px-8 py-5 rounded-xl hover:shadow-2xl transition-all font-black text-lg relative overflow-hidden group"
-              >
-                <span className="relative z-10">Get My Custom Quote</span>
-                <div className="absolute inset-0 bg-linear-to-r from-brand-orange to-warm-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </button>
-
-              <p className="text-center text-sm text-gray-600">
-                We{`'`}ll respond within 24 hours with a personalized quote
-              </p>
-            </form>
+            <EventsForm />
           </div>
         </div>
       </section>

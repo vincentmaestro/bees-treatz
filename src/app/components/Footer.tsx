@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { href: '/menu', label: 'Menu' },
-                { href: '/catering', label: 'Catering' },
+                { href: '/events', label: 'Events & Catering' },
                 { href: '/about', label: 'About' },
                 { href: '/order', label: 'Order Now' },
               ].map((link) => (
@@ -60,7 +60,7 @@ export default function Footer() {
                 <a href='https://www.instagram.com/beestreattz' target='_blank' className="text-sm">Instagram</a>
               </li>
               <li className="flex items-start gap-2 text-gray-300">
-                <a href='www.tiktok.com/@catererinwolverhampton' target='_blank' className="text-sm">TikTok</a>
+                <a href='https://www.tiktok.com/@catererinwolverhampton' target='_blank' className="text-sm">TikTok</a>
               </li>
               <li className="flex items-start gap-2 text-gray-300">
                 <a href='https://web.whatsapp.com/send/?phone=447778797023&text&type=phone_number&app_absent=0' target='_blank' className="text-sm">WhatsApp</a>

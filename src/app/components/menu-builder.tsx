@@ -24,8 +24,8 @@ export default function MenuBuilder({ item, itemName }: {
     return(
         <>
             <div className="relative flex items-center justify-center p-4 bg-linear-to-br from-brand-orange/20 to-warm-yellow/20 rounded-xl overflow-hidden mb-3 border-2 border-brand-orange/30">
-                <div className="w-full">
-                    <Image src={urlFor(item.images[currentIndex]).url()} alt={itemName} width={150} height={70} className="w-full object-cover" />
+                <div className="aspect-4/3">
+                    <Image src={urlFor(item.images[currentIndex]).url()} alt={itemName} width={150} height={70} className="object-cover" />
                 </div>
         
                 {item.images.length > 1 && (

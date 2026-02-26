@@ -1,7 +1,31 @@
+import { client } from "@/sanity";
+import { SanityDocument } from "next-sanity";
 import { mainMenu } from '@/page-data';
-import { getMenuItems } from '@/sanity/get-menu-items';
 import { notFound } from 'next/navigation';
 import MenuBuilder from '@/app/components/menu-builder';
+
+async function getMenuItems(name: string) {
+    const query = `*[
+        _type == "${name}"]{
+        name,
+        description,
+        images,
+        sizes_and_price[] {
+            size,
+            price
+        }
+    }`;
+
+    return await client.fetch<SanityDocument[]>(
+        query,
+        {},
+        {
+            next: {
+                revalidate: 1
+            }
+        }
+    );
+}
 
 export default async function MenuPage({ params }: {
     params: Promise<{ section: string }>

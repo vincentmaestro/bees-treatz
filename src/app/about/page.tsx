@@ -1,4 +1,4 @@
-import { Flag, Star, Heart, Award, Sparkles, Users, Building2, Utensils } from 'lucide-react';
+import { Star, Sparkles, Users, ForkKnife, CookingPot } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -81,12 +81,11 @@ export default function AboutPage() {
             <p className="text-xl text-gray-300">Comprehensive event and catering solutions</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: Utensils, title: 'Private Dining', desc: 'Intimate culinary experiences' },
-              { icon: Building2, title: 'Corporate Events', desc: 'Professional catering services' },
-              { icon: Users, title: 'Event Catering', desc: 'Weddings, parties, celebrations' },
-              { icon: Sparkles, title: 'Mobile Bar', desc: 'Fully equipped bar service' },
+              { icon: ForkKnife, title: 'Food Vending', desc: 'Serving culinary experiences, satisfying stomachs' },
+              { icon: Users, title: 'Events And Catering', desc: 'Professional catering services. Parties, celebrations' },
+              { icon: CookingPot, title: 'Equipment Rentals', desc: 'Rentals of cooking equipments' },
             ].map((service, idx) => {
               const Icon = service.icon;
               return (
@@ -103,7 +102,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-linear-to-br from-amber-50 to-orange-50">
+      {/* <section className="py-16 bg-linear-to-br from-amber-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-brand-dark mb-4">What Our Customers Say</h2>
@@ -143,7 +142,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
