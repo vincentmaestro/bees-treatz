@@ -1,5 +1,6 @@
 'use client';
-import { useActionState } from 'react';
+import { useActionState, useTransition } from 'react';
+import Script from 'next/script';
 import { sendMail } from '@/actions/events-and-catering';
 
 export const defaultActionState = {
@@ -8,82 +9,106 @@ export const defaultActionState = {
 }
 
 export default function EventsForm() {
-    const [state, handleSubmit, loading] = useActionState(sendMail, defaultActionState);
-  
+    const [loading, startTransition] = useTransition();
+    const [state, submitForm] = useActionState(sendMail, defaultActionState);
+
+    async function handleSubmit(e: React.SubmitEvent) {
+        e.preventDefault();
+
+        const form = new FormData(e.target);
+        const token = await grecaptcha.execute(
+            '6LfjsnksAAAAAK1VnXJs8aDmjrgTDenhva9upbFV',
+            { action: 'submit' }
+        );
+
+        form.set('token', token);
+        
+        startTransition(() => {
+            submitForm(form);
+            e.target.reset();
+        });
+
+    }
+
     return(
-        <form action={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-            <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
-                Full Name *
-                </label>
-                <input
-                type="text"
-                name="name"
-                required
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                />
-            </div>
-
-            <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
-                Phone Number *
-                </label>
-                <input
-                type="tel"
-                name="phone"
-                required
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                />
-            </div>
-            </div>
-
-            <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">
-                Email Address *
-            </label>
-            <input
-                type="email"
-                name="email"
-                required
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
+        <form onSubmit={handleSubmit} className="space-y-6">
+            <Script
+            src='https://www.google.com/recaptcha/api.js?render=6LfjsnksAAAAAK1VnXJs8aDmjrgTDenhva9upbFV'
+            strategy='lazyOnload'
             />
+
+            <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Full Name *
+                    </label>
+                    <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
+                    />
+                </div>
+
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Phone Number *
+                    </label>
+                    <input
+                    type="tel"
+                    name="phone"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
+                    />
+                </div>
+            </div>
+
+            <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Email Address *
+                </label>
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
+                />
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-            <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
-                Event Type *
-                </label>
-                <select
-                name="event-type"
-                required
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                >
-                <option value="">Select event type</option>
-                <option value="Birthday">Birthday Party</option>
-                <option value="Wedding">Wedding</option>
-                <option value="Corporate event">Corporate Event</option>
-                <option value="Church event">Church Event</option>
-                <option value="Private event">Private Party</option>
-                <option value="Popup event">Pop-up Event</option>
-                <option value="Other">Other</option>
-                </select>
-            </div>
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Event Type *
+                    </label>
+                    <select
+                    name="event-type"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
+                    >
+                    <option value="">Select event type</option>
+                    <option value="Birthday">Birthday Party</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Corporate event">Corporate Event</option>
+                    <option value="Church event">Church Event</option>
+                    <option value="Private event">Private Party</option>
+                    <option value="Popup event">Pop-up Event</option>
+                    <option value="Other">Other</option>
+                    </select>
+                </div>
 
-            <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
-                Estimated Number of Guests *
-                </label>
-                <input
-                type="number"
-                name="guest-count"
-                required
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                placeholder="e.g. 50"
-                min="1"
-                />
-            </div>
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Estimated Number of Guests *
+                    </label>
+                    <input
+                    type="number"
+                    name="guest-count"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
+                    placeholder="e.g. 50"
+                    min="1"
+                    />
+                </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -118,28 +143,28 @@ export default function EventsForm() {
             </div>
 
             <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">
-                Event Location *
-            </label>
-            <input
-                type="text"
-                name="location"
-                required
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                placeholder="Venue name or area"
-            />
+                <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Event Location *
+                </label>
+                <input
+                    type="text"
+                    name="location"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
+                    placeholder="Venue name or area"
+                />
             </div>
 
             <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">
-                Tell us about your event
-            </label>
-            <textarea
-                name="details"
-                rows={5}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
-                placeholder="Any additional details we might need...."
-            />
+                <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Tell us about your event
+                </label>
+                <textarea
+                    name="details"
+                    rows={5}
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all"
+                    placeholder="Any additional details we might need...."
+                />
             </div>
 
             <button

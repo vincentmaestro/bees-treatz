@@ -62,7 +62,7 @@ export default function CateringPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-brand-dark mb-4">Request a Quote</h2>
-            <p className="text-xl text-gray-600">Tell us about your event and we{`'`}ll create a custom package</p>
+            <p className="text-xl text-gray-600">Tell us about your event and we{`'`}ll create a quote tailored to it</p>
           </div>
 
           <div className="bg-linear-to-br from-amber-50 to-orange-50 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-brand-orange/30">

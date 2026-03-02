@@ -12,20 +12,36 @@ export async function sendMail(_: typeof defaultActionState, formdata: FormData)
     const location = String(formdata.get('location'));
     const budget = String(formdata.get('budget'));
     const details = String(formdata.get('details'));
+    const token = String(formdata.get('token'));
 
     const transporter = createTransport({
-        host: 'mail.etinpower.com',
+        host: process.env.SENDER_HOST!,
         port: 465,
         secure: true,
         auth: {
-            user: 'sender@etinpower.com',
-            pass: process.env.SENDER_PW
+            user: process.env.SENDER_AUTH!,
+            pass: process.env.SENDER_PW!
         }
     });
 
     try {
+        const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `secret=${process.env.RECAPCHA_SERVER_KEY!}&response=${token}`
+        });
+        const {success, score} = await response.json();
+
+        if(!success || score < 0.6)
+            return {
+                success: false,
+                message: 'Failed to send. Please try again.'
+            }
+
         const info = await transporter.sendMail({
-            from: 'sender@etinpower.com',
+            from: process.env.SENDER_AUTH!,
             to: email,
             subject: '*New Event Catering Enquiry*',
             replyTo: email,
@@ -60,7 +76,7 @@ export async function sendMail(_: typeof defaultActionState, formdata: FormData)
 
                         <tr>
                             <td style="padding: 0 30px 20px 30px;">
-                            <h2 style="margin: 0 0 16px 0; color: #111827; font-size: 18px; font-weight: 700; border-bottom: 2px solid #f4af33; padding-bottom: 8px;">
+                            <h2 style="margin: 16px 0; color: #111827; font-size: 18px; font-weight: 700; border-bottom: 2px solid #f4af33; padding-bottom: 8px;">
                                 👤 Customer Information
                             </h2>
                             
@@ -176,7 +192,7 @@ export async function sendMail(_: typeof defaultActionState, formdata: FormData)
                                 Additional Details
                             </h2>
                             <div style="background-color: #f9fafb; border-radius: 8px; padding: 16px; color: #374151; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">
-                                ${details}
+                                ${details ? details : '-'}
                             </div>
                             </td>
                         </tr>

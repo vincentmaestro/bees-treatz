@@ -1,6 +1,5 @@
 import MenuNavigation from "@/app/components/menu-navigation";
 import { Sparkles } from "lucide-react";
-import Link from "next/link";
 
 export default function MenuLayout({ children }: {
     children: React.ReactNode
@@ -30,7 +29,7 @@ export default function MenuLayout({ children }: {
                     <h2 className="text-3xl lg:text-4xl font-black text-brand-dark mb-8 text-center">Got Questions? 🤔</h2>
                     <div className="space-y-4">
                         {[
-                        { q: "Is cutlery included?", a: "Yes! Each order comes with cutlery included" },
+                        { q: "Is cutlery included?", a: "Yes! Each order comes with cutlery included." },
                         { q: "Worried about Allergens?", a: "Every dispatch includes allergien information." },
                         { q: "How much notice do you need?", a: "Single orders: 24 hours. catering: 48-72 hours so we can make it extra special!" },
                         ].map((faq, idx) => (
