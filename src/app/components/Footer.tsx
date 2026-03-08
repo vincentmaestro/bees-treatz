@@ -15,7 +15,7 @@ export default function Footer() {
                   <span className="text-brand-orange">Bee{`'`}s</span> Treatz
                 </h3>
               </div>
-              <p className="text-gray-300 mb-3 text-lg">
+              <p className="text-gray-300 mb-3 italic">
                 ...Satisfying stomachs
               </p>
             </>

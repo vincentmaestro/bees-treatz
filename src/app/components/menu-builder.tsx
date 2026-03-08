@@ -4,20 +4,22 @@ import { SanityDocument } from "next-sanity";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { urlFor } from "@/sanity";
+import { useCart } from "@/lib/cart";
 
 export default function MenuBuilder({ item, itemName }: {
     item: SanityDocument,
     itemName: string
 }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [currentItemIndex, setCurrentItemIndex] = useState(0);
+    const { addToCart } = useCart();
 
     const goToPrevious = () => {
-      setCurrentIndex((prev) => (prev === 0 ? item.images.length - 1 : prev - 1));
+      setCurrentImageIndex((prev) => (prev === 0 ? item.images.length - 1 : prev - 1));
     };
   
     const goToNext = () => {
-      setCurrentIndex((prev) => (prev === item.images.length - 1 ? 0 : prev + 1));
+      setCurrentImageIndex((prev) => (prev === item.images.length - 1 ? 0 : prev + 1));
     };
     
 
@@ -25,7 +27,7 @@ export default function MenuBuilder({ item, itemName }: {
         <>
             <div className="relative flex items-center justify-center p-4 bg-linear-to-br from-brand-orange/20 to-warm-yellow/20 rounded-xl overflow-hidden mb-3 border-2 border-brand-orange/30">
                 <div className="aspect-4/3">
-                    <Image src={urlFor(item.images[currentIndex]).url()} alt={itemName} width={150} height={70} className="object-cover" />
+                    <Image src={urlFor(item.images[currentImageIndex]).url()} alt={itemName} width={150} height={70} className="object-cover" />
                 </div>
         
                 {item.images.length > 1 && (
@@ -75,6 +77,14 @@ export default function MenuBuilder({ item, itemName }: {
                 <button
                 title="Add item"
                 className="px-4 py-1 text-sm text-gray-500 border-2 border-brand-orange/70 rounded-lg hover:bg-brand-orange/90 hover:text-white cursor-pointer transition-all duration-100"
+                onClick={() => addToCart({
+                    id: item._id,
+                    name: itemName,
+                    type: 'menu',
+                    image: urlFor(item.images[0]).url(),
+                    price: parseFloat(item.sizes_and_prices[currentItemIndex].price),
+                    quantity: 1
+                })}
                 >
                     Add
                 </button>

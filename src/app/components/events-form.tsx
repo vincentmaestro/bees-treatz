@@ -27,7 +27,6 @@ export default function EventsForm() {
             submitForm(form);
             e.target.reset();
         });
-
     }
 
     return(
