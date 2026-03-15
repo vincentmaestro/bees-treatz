@@ -65,10 +65,9 @@ export default function Navigation() {
                   toggleCart();
                   setIsOpen(false);
                 }}
-                className="relative flex items-center justify-center font-bold gap-x-3 rounded-full py-1 px-3 text-white bg-linear-to-r from-brand-orange to-warm-yellow
+                className="relative font-bold gap-x-3 rounded-full py-1 px-3 text-white bg-linear-to-r from-brand-orange to-warm-yellow
                 hover:opacity-85 hover:text-gray-800 hover:scale-105 transition-all duration-200"
               >
-                <span className="relative z-10">Cart</span>
                 <ShoppingCart className="w-4 h-4" />
                 {itemCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-brand-red text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
