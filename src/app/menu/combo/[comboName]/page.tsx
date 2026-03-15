@@ -11,6 +11,7 @@ interface ComboResponse {
 async function getCombos() {
     const query = `*[
         _type == "combos"]{
+        _id,
         name,
         mains[]{
         ...
@@ -40,6 +41,7 @@ export default async function ComboPage({ params }: {
   const { comboName } = await params;
     const combos = await getCombos();
     const combo = combos.find(c => c.name.toLowerCase() === `${comboName} combo`);
+    console.log(combo)
 
     if(!combo)
       return(notFound());

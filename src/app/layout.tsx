@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
 import CartProvider from "@/lib/cart";
+import CartDrawer from "./components/cart-drawer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat" });
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Navigation />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <CartDrawer />
         </CartProvider>
       </body>
     </html>

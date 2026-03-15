@@ -2,11 +2,14 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Flame } from 'lucide-react';
+import { Menu, X, Flame, ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
+import { useCart } from '@/lib/cart';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cart, toggleCart } = useCart();
+  const itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
 
   const navLinks = [
     { href: '/menu', label: 'Menu' },
@@ -15,7 +18,7 @@ export default function Navigation() {
     { href: '/about', label: 'About' },
   ];
 
-  return (
+  return (    
     <>
       <nav className="bg-white shadow-md sticky top-0 z-50 border-b-4 border-brand-orange">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
@@ -42,16 +45,36 @@ export default function Navigation() {
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-brand-red via-brand-orange to-warm-yellow scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </Link>
               ))}
-              <Link
-                href="/order"
-                className="relative bg-linear-to-r from-brand-red to-brand-orange text-white px-6 py-2.5 rounded-lg font-bold overflow-hidden group"
+              <button
+                onClick={toggleCart}
+                className="relative flex items-center gap-x-3 rounded-full py-1 px-3 text-white bg-linear-to-r from-brand-orange to-warm-yellow
+                hover:opacity-85 hover:text-gray-800 hover:scale-105 transition-all duration-200"
               >
-                <span className="relative z-10">Order Now!</span>
-                <div className="absolute inset-0 bg-linear-to-r from-brand-orange to-warm-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </Link>
+                <span className="relative z-10">Cart</span>
+                <ShoppingCart className="w-4 h-4" />
+                {itemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-brand-red text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                    {itemCount}
+                  </span>)}
+              </button>
             </div>
 
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex items-center gap-x-3">
+              <button
+                onClick={() => {
+                  toggleCart();
+                  setIsOpen(false);
+                }}
+                className="relative flex items-center justify-center font-bold gap-x-3 rounded-full py-1 px-3 text-white bg-linear-to-r from-brand-orange to-warm-yellow
+                hover:opacity-85 hover:text-gray-800 hover:scale-105 transition-all duration-200"
+              >
+                <span className="relative z-10">Cart</span>
+                <ShoppingCart className="w-4 h-4" />
+                {itemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-brand-red text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                    {itemCount}
+                  </span>)}
+              </button>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-brand-dark hover:text-brand-orange p-2 transition-colors"
@@ -87,14 +110,6 @@ export default function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/order"
-                className="flex justify-center gap-x-2 mt-4 bg-linear-to-r from-brand-red to-brand-orange text-white px-4 py-3 rounded-lg font-bold"
-                onClick={() => setIsOpen(false)}
-              >
-                Order Now!
-                <Flame className='w-5 h-5' />
-              </Link>
             </div>
           </div>
         </>

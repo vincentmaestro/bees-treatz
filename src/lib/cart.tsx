@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 
 interface CartItem {
     id: string;
@@ -100,7 +100,11 @@ interface CartContextType {
     addToCart: (item: CartItem) => void,
     removeFromCart: (id: string) => void,
     updateQuantity: (id: string, quantity: number) => void,
-    clearCart: () => void
+    clearCart: () => void,
+    isOpen: boolean,
+    openCart: () => void,
+    closeCart: () => void,
+    toggleCart: () => void,
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -110,6 +114,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
         items: [],
         total: 0
     });
+    const [isOpen, setIsOpen] = useState(false);
 
     function addToCart(item: CartItem) {
         dispatch({ type: 'add', payload: item });
@@ -129,6 +134,10 @@ export default function CartProvider({ children }: { children: React.ReactNode }
     function clearCart() {
         dispatch({ type: 'clear' });
     }
+
+    const openCart = () => setIsOpen(true);
+    const closeCart = () => setIsOpen(false);
+    const toggleCart = () => setIsOpen(!isOpen);
 
     useEffect(() => {
         try {
@@ -154,7 +163,11 @@ export default function CartProvider({ children }: { children: React.ReactNode }
             addToCart,
             removeFromCart,
             updateQuantity,
-            clearCart
+            clearCart,
+            isOpen,
+            openCart,
+            closeCart,
+            toggleCart,
         }}
         >
             { children }

@@ -7,6 +7,7 @@ import MenuBuilder from '@/app/components/menu-builder';
 async function getMenuItems(name: string) {
     const query = `*[
         _type == "${name}"]{
+        _id,
         name,
         description,
         images,
@@ -53,14 +54,6 @@ export default async function MenuPage({ params }: {
                             {menuItems.length > 0 ?
                             menuItems.map((item, idx) => (
                             <div key={idx} className="relative p-6 rounded-2xl hover:bg-linear-to-br hover:from-amber-50 hover:to-orange-50 transition-all border-2 border-transparent hover:border-brand-orange menu-card-glow">
-                                {item.badge && (
-                                    <div className="absolute -top-3 -right-3 z-10">
-                                        <span className="stamp bg-linear-to-r from-brand-red to-brand-orange text-white text-xs font-bold px-3 py-1.5">
-                                            {item.badge}
-                                        </span>
-                                    </div>
-                                )}
-
                                 <MenuBuilder item={item} itemName={item.name} />
                             </div>
                             )) :

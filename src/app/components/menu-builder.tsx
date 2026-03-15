@@ -82,7 +82,7 @@ export default function MenuBuilder({ item, itemName }: {
                     name: itemName,
                     type: 'menu',
                     image: urlFor(item.images[0]).url(),
-                    price: parseFloat(item.sizes_and_prices[currentItemIndex].price),
+                    price: parseFloat(item.sizes_and_price[currentItemIndex].price),
                     quantity: 1
                 })}
                 >

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Minus, Plus } from 'lucide-react';
 import { SanityDocument } from 'next-sanity';
+import { useCart } from '@/lib/cart';
 
 interface ComboItem {
   _key: string;
@@ -23,6 +24,7 @@ export default function ComboBuilder({ combo }: {
   combo: SanityDocument
 }) {
   const [cart, setCart] = useState<{[key: string]: OrderItem}>({});
+  const { addToCart } = useCart();
 
   const updateQuantity = (item: ComboItem, quantity: number) => {
     if (quantity <= 0) {
@@ -136,7 +138,25 @@ export default function ComboBuilder({ combo }: {
                 </div>
               </div>
               
-              <button className="w-full bg-linear-to-r from-brand-red to-brand-orange text-white py-4 rounded-xl font-black text-lg hover:shadow-xl transition-all">
+              <button
+              className="w-full bg-linear-to-r from-brand-red to-brand-orange text-white py-4 rounded-xl font-black text-lg hover:shadow-xl transition-all"
+              onClick={() => {
+                addToCart({
+                  id: combo._id,
+                  name: combo.name,
+                  type: 'combo',
+                  price: total,
+                  quantity: 1,
+                  comboDetails: {
+                    comboName: combo.name,
+                    items: Object.values(cart).map(item => ({
+                      name: item.item,
+                      quantity: item.quantity
+                    }))
+                  }
+                });
+              }}
+              >
                 Add to Cart 🛒
               </button>
             </>
